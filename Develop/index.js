@@ -4,6 +4,7 @@ var fs = require("fs");
 var inquirer = require("inquirer");
 var util = require("util");
 var generateMarkdown = require("./utils/generateMarkdown");
+var writeFileAsync = util.promisify(writeToFile);
 
 
 // TODO: Create an array of questions for user input
@@ -49,7 +50,7 @@ const question = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile("readme.md", data, function(err) {
+    fs.writeFile("./output/readme.md", generateMarkdown(data), function(err) {
         if (err) {
             return console.log(err);
         }
@@ -59,9 +60,10 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 async function init() {
-    inquirer.prompt(question, function(answers) {
-        writeToFile("readme.md", generateMarkdown(answers));
-    });
+    inquirer.prompt(question).then(function(data) {
+        console.log(data);
+        writeToFile();
+    })
 }
 
 // Function call to initialize app
