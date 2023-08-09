@@ -19,6 +19,10 @@
   ## Usage 
   Using the command line, run the program by using node to execute the index.js file. You will be prompted to answer a series of questions. Once those questions have been answered your readme file will be generated.
 
+  ## Demo
+  [Readme generator demo.webm](https://github.com/ChazCoats98/Node-Readme-Generator/assets/134428862/7bb7b60d-daa4-4e2f-9641-07b10e983a77)
+
+
   ## License
   This project is licensed under the Mozilla license.
 
